@@ -15,9 +15,9 @@ SPLUNK_HOME=/opt/splunk
 #splunkuserpassword=`cat user-seed.conf | grep PASSWORD | awk '{print $3;}'`
 
 # If manually specifying a password, uncomment this
-#splunkuserpassword=Splunk.5
+splunkuserpassword=Splunk.5
 
-#hostname=                                                
+hostname=splunk                                                
 
 
 
@@ -69,14 +69,14 @@ sudo chown -vR root $SPLUNK_HOME
 
 
 # Starts splunk as $splunkuser, still needs password input, admin acct not created
-# required if using the $splunkuserpassword variable above
-#sudo $SPLUNK_HOME/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd $splunkuserpassword                                               
+# Required if using the $splunkuserpassword variable above
+sudo $SPLUNK_HOME/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd $splunkuserpassword                                               
 
 # Starts splunk as root, auto generates password
-sudo $SPLUNK_HOME/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt
+#sudo $SPLUNK_HOME/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt
 
 # Copies user-seed.conf so our preferred password is set
-sudo cp ./user-seed.conf $SPLUNK_HOME/etc/system/local/user-seed.conf
+#sudo cp ./user-seed.conf $SPLUNK_HOME/etc/system/local/user-seed.conf
 
 # Add license from local license file
 sudo $SPLUNK_HOME/bin/splunk add licenses ./license.lic -auth admin:$splunkuserpassword

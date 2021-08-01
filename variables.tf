@@ -1,5 +1,5 @@
 
-# Required configuration
+# Required before deployment
 
 variable "aws_profile" {
     type = string
@@ -26,15 +26,15 @@ variable "aws_keyname" {
     default = "" # The name of your aws key ("somekey")
 }
 
-
+# Configurable 
 
 variable "aws_splunkwebport" {
-    type = string
+    type = number
     default = "8000"
 }
 
 variable "aws_splunkmgmtport" {
-    type = string
+    type = number
     default = "8089"
 }
 
