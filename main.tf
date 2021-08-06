@@ -83,6 +83,8 @@ resource "aws_instance" "splunk" {
     destination = "/tmp"
   }
 
+# change permissions and run splunk install script
+
   provisioner "remote-exec" {
     connection {
       host = aws_instance.splunk.public_ip
@@ -100,7 +102,6 @@ resource "aws_instance" "splunk" {
 
 }
 
-#AMI Filter for Linux CentOS 7
 
 data "aws_ami" "ami_os_filter" {
      most_recent = true
@@ -121,7 +122,7 @@ data "aws_ami" "ami_os_filter" {
 
  }
 
-     owners = [var.amifilter_owner] # Canonical
+     owners = [var.amifilter_owner] 
 
  }
 
