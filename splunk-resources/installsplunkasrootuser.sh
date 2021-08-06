@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# This script downloads and installs Splunk Enterprise 
+# as the root user. Running apps as root is insecure, so
+# this should only be used for demo/testing purposes.
+# Uncomment any setting to enable it.
+
 # Tested on CentOS 7
 
 # Variables
@@ -82,8 +87,8 @@ sudo $SPLUNK_HOME/bin/splunk start --accept-license --answer-yes --no-prompt --s
 sudo $SPLUNK_HOME/bin/splunk add licenses ./license.lic -auth admin:$splunkuserpassword
 
 # Set default hostname and servername
-sudo $SPLUNK_HOME/bin/splunk set default-hostname $hostname
-sudo $SPLUNK_HOME/bin/splunk set servername $hostname
+sudo $SPLUNK_HOME/bin/splunk set default-hostname $hostname -auth admin:$splunkuserpassword
+sudo $SPLUNK_HOME/bin/splunk set servername $hostname -auth admin:$splunkuserpassword
 
 sudo $SPLUNK_HOME/bin/splunk restart
 
