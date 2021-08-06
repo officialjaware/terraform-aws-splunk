@@ -52,7 +52,6 @@ resource "aws_security_group" "splunk" {
 
 
 resource "aws_instance" "splunk" {
-#  ami           = "ami-00f8e2c955f7ffa9b"     #CentOS AMI
   ami = data.aws_ami.ami_os_filter.id
   instance_type = var.aws_instance_type
   availability_zone = var.aws_az
@@ -93,8 +92,8 @@ resource "aws_instance" "splunk" {
       private_key = file(var.aws_privatekeypath)
     }
     inline = [
-      "sudo chmod +x /tmp/splunk-resources/install.sh",
-      "sudo /tmp/splunk-resources/install.sh",
+      "sudo chmod +x /tmp/splunk-resources/installsplunkasrootuser.sh",
+      "sudo /tmp/splunk-resources/installsplunkasrootuser.sh",
       "echo Splunk is installed!"
     ]
   }
