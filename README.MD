@@ -1,10 +1,9 @@
 # Terraform template for Splunk Enterprise on AWS
-This template provisions base AWS infrastructure and deploys Splunk Enterprise (single instance). This is very useful for temporary deployments used for demo/testing purposes.
+This template provisions base AWS infrastructure and deploys Splunk Enterprise (single instance). This is useful for temporary deployments used for demo/testing purposes.
 
 ### Pre-requisites
 1. [Install & configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-2. [Confgure an AWS Credentials file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-3. [Install & configure Terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+2. Configure AWS Account & Terraform as described in sections 1 & 2 [here](https://blog.gruntwork.io/an-introduction-to-terraform-f17df9c6d180)
 4. Set requred and optional parameters (described below)
 5. Paste license in splunk-resources/license.lic
 
