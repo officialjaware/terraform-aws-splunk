@@ -1,6 +1,6 @@
 
 terraform {
-  required_version = "~> 0.14.2"
+  required_version = ">=1.1.0"
 }
 
 provider "aws" {
@@ -57,9 +57,9 @@ resource "aws_instance" "splunk" {
   availability_zone = var.aws_az
   key_name = var.aws_keyname
 
-  ebs_block_device {
-    device_name = "/dev/sda1"
+  root_block_device {
     volume_size = var.aws_ebs_volumesize
+    delete_on_termination = "true"
   }
 
   tags = {
